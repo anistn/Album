@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/photo"
-    android:layout_width="75dp"
-    android:layout_height="75dp"
-    android:minHeight="75dp"
-    android:minWidth="75dp"
-    android:scaleType="centerCrop"
-    android:background="@color/ui_kit_black18"
-    android:layout_margin="4dp" />
+    android:layout_width="@dimen/list_thumbnail_size"
+    android:layout_height="@dimen/list_thumbnail_size"
+    android:scaleType="fitCenter"
+    android:background="@color/ui_kit_black18" />

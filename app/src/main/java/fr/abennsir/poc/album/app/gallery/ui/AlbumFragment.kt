@@ -1,25 +1,51 @@
 package fr.abennsir.poc.album.app.gallery.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
+import fr.abennsir.poc.album.R
 import fr.abennsir.poc.album.app.core.utils.autoCleared
+import fr.abennsir.poc.album.app.gallery.data.NavigationMode
+import fr.abennsir.poc.album.app.gallery.data.UiModel
+import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
+import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
+import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
+import fr.abennsir.poc.album.domain.interactor.PhotoUsesCase
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 /**
  * A simple [Fragment] subclass used to show All photos on a Grid.
  * It use position or item id if sectioned to navigate to Detail .
  */
+@ExperimentalCoroutinesApi
 class AlbumFragment : Fragment() {
 
     private var binding: FragmentAlbumBinding by autoCleared()
     private val navigationArgs: AlbumFragmentArgs by navArgs()
+
+    private lateinit var itemNavigationHandler: NavigationHandler
+    private lateinit var viewHolder: BaseAlbumScreenViewHolder<*>
+
+    private val viewModelFactory by lazy {
+        ViewModelFactory(
+            PhotoUsesCase(ApplicationDependenciesResolver.resolveSharedRepository()),
+            requireActivity().application
+        )
+    }
+
+    private val simpleViewModel: PhotoViewModel by navGraphViewModels(
+        R.id.navigation_graph_album
+    ) {
+        viewModelFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,20 +55,59 @@ class AlbumFragment : Fragment() {
         return binding.root
     }
 
+
+    //        Log.d("TAG", "ARGS ${navigationArgs.configuration}")
+//        binding.fakeBtn.setOnClickListener {
+//            findNavController().navigate(
+//                AlbumFragmentDirections.actionAlbumFragmentToCarouselDetailFragment(
+//                    configuration = navigationArgs.configuration,
+//                    selectedPhotoIdKey = 0,
+//                    selectedPositionKey = 0
+//                )
+//            )
+//        }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d("TAG", "ARGS ${navigationArgs.configuration}")
-        binding.fakeBtn.setOnClickListener {
-            findNavController().navigate(
-                AlbumFragmentDirections.actionAlbumFragmentToCarouselDetailFragment(
-                    configuration = navigationArgs.configuration,
-                    selectedPhotoIdKey = 0,
-                    selectedPositionKey = 0
-                )
-            )
-        }
-
+        createViewHolder()
+        createSelectedItemNavigation()
+        itemNavigationHandler.handleNavigateToItem()
     }
 
+
+    private fun createViewHolder() {
+        viewHolder = if (navigationArgs.configuration.enablePaging) {
+            //pagedViewHolder
+            TODO("NOT YET IMPLEMENTED")
+        } else {
+            //simple ViewHolder
+            AlbumScreenViewHolder(
+                binding = binding,
+                viewModel = simpleViewModel,
+                navigationMode = navigationArgs.configuration.mode,
+                lifecycleOwner = viewLifecycleOwner,
+                photoClickAction = ::handleItemClickEvent
+            )
+        }
+    }
+
+    private fun handleItemClickEvent(item: UiModel.PhotoItem, position: Int) {
+        itemNavigationHandler.navigateToDetail(item, position)
+    }
+
+    private fun createSelectedItemNavigation() {
+        val navigationMode = navigationArgs.configuration.mode
+        itemNavigationHandler = if (navigationMode == NavigationMode.DEFAULT) {
+            PositionalNavigationHandler(
+                config = navigationArgs.configuration,
+                scrollHandlerViewHolder = viewHolder, navController = findNavController()
+            )
+        } else {
+            IdentifierNavigationHandler(
+                config = navigationArgs.configuration,
+                scrollHandlerViewHolder = viewHolder, navController = findNavController()
+            )
+        }
+    }
 }
