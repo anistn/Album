@@ -8,10 +8,8 @@ import fr.abennsir.poc.album.repository.core.tools.SuspendCallWatcher
 import fr.abennsir.poc.album.repository.data.NetworkResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.withContext
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldBeInstanceOf
 import org.amshove.kluent.shouldNotBeNull
@@ -38,10 +36,6 @@ class FetchResourceDataAccessStrategyKtTest {
     fun setUp() {
         networkCall = SuspendCallProducer { NetworkResponse.Fresh("") }
         saveCall = SuspendCallWatcher {
-            //here we offer second list as update from database
-            withContext(currentCoroutineContext()) {
-                Thread.sleep(5)
-            }
         }
     }
 
@@ -112,9 +106,6 @@ class FetchResourceDataAccessStrategyKtTest {
     @Test
     fun networkCallShouldNotBlocCancellation() = runBlockingTest {
         networkCall = SuspendCallProducer {
-            withContext(currentCoroutineContext()) {
-                Thread.sleep(5)
-            }
             throw CancellationException()
         }
 
@@ -137,7 +128,7 @@ class FetchResourceDataAccessStrategyKtTest {
     fun saveCallShouldNotBlocCancellation() = runBlockingTest {
 
         saveCall = SuspendCallWatcher {
-            //here we offer second list as update from database
+            //here we offer exception second list as update from database
             throw CancellationException()
         }
 
@@ -162,9 +153,6 @@ class FetchResourceDataAccessStrategyKtTest {
     fun saveCallErrorShouldThrowIfError() = runBlockingTest {
 
         saveCall = SuspendCallWatcher {
-            withContext(currentCoroutineContext()) {
-                Thread.sleep(5)
-            }
             //here we offer second list as update from database
             throw IOException()
         }
