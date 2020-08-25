@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".app.home.HomeFragment"
+        android:padding="@dimen/padding_default">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon"
+            app:layout_constraintDimensionRatio="H:1:1"
+            android:scaleType="fitCenter"
+            android:minHeight="@dimen/icon_size_biggest"
+            app:srcCompat="@drawable/ui_kit_ic_emotional_rocket"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/ui_kit_brand_primary"
+            tools:viewBindingIgnore="true" />
+
+        <TextView
+            android:drawablePadding="@dimen/padding_default"
+            android:id="@+id/info_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_vertical"
+            android:text="@string/home_blank_fragment_message"
+            tools:viewBindingIgnore="true"
+            style="?attr/textAppearanceSubtitle1" />
+
+        <TextView
+            android:id="@+id/configuration_section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/info_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="@dimen/padding_default"
+            tools:viewBindingIgnore="true"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:text="@string/section_simple_gallery" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/activate_album_section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_default"
+            android:text="@string/show_album_header_on_text"
+            app:layout_constraintTop_toBottomOf="@+id/configuration_section"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/use_paging"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/use_paging_on_text"
+            app:layout_constraintTop_toBottomOf="@+id/activate_album_section"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Button
+            android:layout_margin="@dimen/margin_default"
+            android:id="@+id/start_album"
+            app:layout_constraintTop_toBottomOf="@+id/use_paging"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/start_album"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

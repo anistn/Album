@@ -20,4 +20,17 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.startAlbum.setOnClickListener {
+
+            val showAlbumSection = binding.activateAlbumSection.isChecked
+            val enablePaging = binding.usePaging.isChecked
+            //TODO add redirect to Gallery fragment
+
+
+        }
+    }
 }
