@@ -1,6 +1,9 @@
 package fr.abennsir.poc.album.domain.interactor
 
+import androidx.paging.PagingData
+import fr.abennsir.poc.album.domain.data.Photo
 import fr.abennsir.poc.album.domain.repository.PhotoRepository
+import kotlinx.coroutines.flow.Flow
 
 
 /**
@@ -8,6 +11,9 @@ import fr.abennsir.poc.album.domain.repository.PhotoRepository
  */
 class PhotoUsesCase(private val repository: PhotoRepository) {
 
+    /**
+     * the saved photo flow.
+     */
     fun retrieveAllPhotoStream() = repository.getPhotoStreamAsResource()
 
     /**
@@ -15,4 +21,8 @@ class PhotoUsesCase(private val repository: PhotoRepository) {
      */
     fun synchronizePhotos() = repository.synchronizePhoto()
 
+    /**
+     * the saved photo as paged flow.
+     */
+    fun retrievePhotoStream(): Flow<PagingData<Photo>> = repository.getPagedPhotoStream()
 }
