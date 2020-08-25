@@ -19,12 +19,14 @@ import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
 import fr.abennsir.poc.album.databinding.FragmentCarouselDetailBinding
 import fr.abennsir.poc.album.domain.interactor.PhotoUsesCase
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 /**
  * A simple [Fragment] subclass ssed to show Pager for Photos.
  */
 
+@ExperimentalCoroutinesApi
 class CarouselDetailFragment : Fragment() {
 
     private var binding: FragmentCarouselDetailBinding by autoCleared()

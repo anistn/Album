@@ -19,11 +19,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
  */
 @ExperimentalCoroutinesApi
 class CarouselViewHolder(
-    private val galleryPager: ViewPager2,
-    private val navigationMode: NavigationMode = NavigationMode.DEFAULT,
     private val lifecycleOwner: LifecycleOwner,
     private val viewModel: PhotoViewModel,
-    private val onPageChanged: (UiModel.PhotoItem, Int) -> Unit = { _, _ -> Unit }
+    galleryPager: ViewPager2,
+    navigationMode: NavigationMode = NavigationMode.DEFAULT,
+    onPageChanged: (UiModel.PhotoItem, Int) -> Unit = { _, _ -> Unit }
 
 ) : BaseCarouselViewHolder<PhotoGalleryDataAdapter>(
     galleryPager, onPageChanged,
@@ -41,7 +41,7 @@ class CarouselViewHolder(
 
 
     override fun observeData() {
-        viewModel.photoLiveData.observe(lifecycleOwner) { items ->
+        viewModel.getPhotosStream().observe(owner = lifecycleOwner) { items ->
             val list: List<UiModel.PhotoItem> = items.filterIsInstance<UiModel.PhotoItem>()
             recyclerAdapter.submitList(list)
             executePendingScroll()

@@ -3,6 +3,7 @@ package fr.abennsir.poc.album.app.gallery.viewmodel
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import fr.abennsir.poc.album.R
@@ -27,9 +28,9 @@ import kotlinx.coroutines.launch
 class PhotoViewModel(private val usesCase: PhotoUsesCase, application: Application) :
     AndroidViewModel(application) {
 
-    val errorLiveDate = SingleLiveEvent<String>()
-    val screenState = MutableLiveData<ScreenState>()
-    val photoLiveData = MutableLiveData<List<UiModel>>()
+    private val errorLiveDate = SingleLiveEvent<String>()
+    private val screenState = MutableLiveData<ScreenState>()
+    private val photoLiveData = MutableLiveData<List<UiModel>>()
 
 
     init {
@@ -62,6 +63,10 @@ class PhotoViewModel(private val usesCase: PhotoUsesCase, application: Applicati
                 }
         }
     }
+
+    fun getPhotosStream(): LiveData<List<UiModel>> = photoLiveData
+    fun getErrorStream(): LiveData<String> = errorLiveDate
+    fun getScreenStateStream(): LiveData<ScreenState> = screenState
 
     fun synchronize() {
         loadPhotos()

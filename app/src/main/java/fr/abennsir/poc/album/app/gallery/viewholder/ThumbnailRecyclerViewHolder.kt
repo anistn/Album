@@ -22,9 +22,7 @@ class ThumbnailRecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             photo.thumbnailUrl, R.drawable.ic_photo_place_holder,
             R.drawable.ic_photo_place_holder_error_broken
         )
-        imageView.setOnClickListener { _ ->
-            action.invoke(photo, bindingAdapterPosition)
-        }
+        imageView.setOnClickListener { action.invoke(photo, bindingAdapterPosition) }
     }
 
 

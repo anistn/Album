@@ -1,6 +1,7 @@
 package fr.abennsir.poc.album.app.gallery.ui
 
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import fr.abennsir.poc.album.app.gallery.adapter.PhotoDataAdapter
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
@@ -9,10 +10,8 @@ import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
 import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import androidx.lifecycle.observe as lifecycleObserve
 
 
-//TODO: use this viewholder to init the recycler...
 @ExperimentalCoroutinesApi
 class AlbumScreenViewHolder(
     binding: FragmentAlbumBinding,
@@ -41,7 +40,7 @@ class AlbumScreenViewHolder(
 
 
     override fun observeData() {
-        viewModel.photoLiveData.lifecycleObserve(lifecycleOwner) { listPhotos ->
+        viewModel.getPhotosStream().observe(owner = lifecycleOwner) { listPhotos ->
             if (navigationMode == NavigationMode.DEFAULT) {
                 //navigation mode using position
                 recyclerAdapter.submitList(
@@ -54,11 +53,11 @@ class AlbumScreenViewHolder(
             executePendingScroll()
         }
 
-        viewModel.screenState.lifecycleObserve(
+        viewModel.getScreenStateStream().observe(
             owner = lifecycleOwner,
             onChanged = ::updateScreenForState
         )
-        viewModel.errorLiveDate.lifecycleObserve(owner = lifecycleOwner) {
+        viewModel.getErrorStream().observe<String>(owner = lifecycleOwner) {
             val errorMessage = "\uD83D\uDE28 Wooops:  $it"
             showError(errorMessage)
         }

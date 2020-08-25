@@ -55,18 +55,6 @@ class AlbumFragment : Fragment() {
         return binding.root
     }
 
-
-    //        Log.d("TAG", "ARGS ${navigationArgs.configuration}")
-//        binding.fakeBtn.setOnClickListener {
-//            findNavController().navigate(
-//                AlbumFragmentDirections.actionAlbumFragmentToCarouselDetailFragment(
-//                    configuration = navigationArgs.configuration,
-//                    selectedPhotoIdKey = 0,
-//                    selectedPositionKey = 0
-//                )
-//            )
-//        }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

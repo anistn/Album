@@ -74,7 +74,6 @@ abstract class BaseAlbumScreenViewHolder<out T : RecyclerView.Adapter<*>>(
             }
         }
 
-
         binding.list.layoutManager
         binding.list.adapter = recyclerAdapter
 
