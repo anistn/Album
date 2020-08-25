@@ -13,8 +13,8 @@ import fr.abennsir.poc.album.app.core.utils.autoCleared
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.gallery.simple.viewholder.CarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseCarouselViewHolder
-import fr.abennsir.poc.album.app.gallery.viewholder.CarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
 import fr.abennsir.poc.album.databinding.FragmentCarouselDetailBinding

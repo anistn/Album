@@ -1,4 +1,4 @@
-package fr.abennsir.poc.album.app.gallery.adapter
+package fr.abennsir.poc.album.app.gallery.simple.adapter
 
 
 import android.view.ViewGroup

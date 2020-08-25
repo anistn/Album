@@ -1,11 +1,11 @@
-package fr.abennsir.poc.album.app.gallery.ui
+package fr.abennsir.poc.album.app.gallery.simple.viewholder
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
-import fr.abennsir.poc.album.app.gallery.adapter.PhotoDataAdapter
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
+import fr.abennsir.poc.album.app.gallery.simple.adapter.PhotoDataAdapter
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
 import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
