@@ -13,8 +13,11 @@ import fr.abennsir.poc.album.app.core.utils.autoCleared
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.gallery.paging.viewholder.AlbumPagedScreenViewHolder
+import fr.abennsir.poc.album.app.gallery.paging.viewmodel.PagedPhotoViewModel
+import fr.abennsir.poc.album.app.gallery.simple.viewholder.AlbumScreenViewHolder
+import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
-import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
 import fr.abennsir.poc.album.domain.interactor.PhotoUsesCase
@@ -41,9 +44,11 @@ class AlbumFragment : Fragment() {
         )
     }
 
-    private val simpleViewModel: PhotoViewModel by navGraphViewModels(
-        R.id.navigation_graph_album
-    ) {
+    //ViewModel creation is lazy, depending on configuration only one ViewModel will be instantiated
+    private val simpleViewModel: PhotoViewModel by navGraphViewModels(R.id.navigation_graph_album) {
+        viewModelFactory
+    }
+    private val pagedViewModel: PagedPhotoViewModel by navGraphViewModels(R.id.navigation_graph_album) {
         viewModelFactory
     }
 
@@ -67,7 +72,14 @@ class AlbumFragment : Fragment() {
     private fun createViewHolder() {
         viewHolder = if (navigationArgs.configuration.enablePaging) {
             //pagedViewHolder
-            TODO("NOT YET IMPLEMENTED")
+            AlbumPagedScreenViewHolder(
+                binding = binding,
+                viewModel = pagedViewModel,
+                navigationMode = navigationArgs.configuration.mode,
+                lifecycleOwner = viewLifecycleOwner
+            ) { uiData, position ->
+                itemNavigationHandler.navigateToDetail(uiData, position)
+            }
         } else {
             //simple ViewHolder
             AlbumScreenViewHolder(

@@ -1,13 +1,14 @@
-package fr.abennsir.poc.album.app.gallery.ui
+package fr.abennsir.poc.album.app.gallery.simple.viewholder
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
-import fr.abennsir.poc.album.app.gallery.adapter.PhotoDataAdapter
+import fr.abennsir.poc.album.app.gallery.adapter.PhotoAdapterDelegate
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
+import fr.abennsir.poc.album.app.gallery.simple.adapter.PhotoDataAdapter
+import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
-import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -19,13 +20,12 @@ class AlbumScreenViewHolder(
     private val viewModel: PhotoViewModel,
     private val navigationMode: NavigationMode = NavigationMode.DEFAULT,
     private val photoClickAction: (UiModel.PhotoItem, Int) -> Unit = { _, _ -> Unit }
-) :
-    BaseAlbumScreenViewHolder<PhotoDataAdapter>(binding, navigationMode, PhotoDataAdapter
-    { item: UiModel.PhotoItem, position: Int ->
+) : BaseAlbumScreenViewHolder<PhotoDataAdapter>(binding, navigationMode, PhotoDataAdapter(
+    delegate = PhotoAdapterDelegate { item: UiModel.PhotoItem, position: Int ->
         photoClickAction(item, position)
-    }.apply {
-        stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-    }) {
+    }).apply {
+    stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+}) {
 
     init {
         initialize()

@@ -3,18 +3,15 @@ package fr.abennsir.poc.album.app.gallery.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import fr.abennsir.poc.album.R
-
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.viewholder.PhotoGalleryRecyclerViewHolder
 
-
 /**
- * Adapter for the gallery of photo, will be used with view pager
+ * Base implementation for Adapter of Carousel.
  */
-class PhotoGalleryDataAdapter :
-    ListAdapter<UiModel.PhotoItem, PhotoGalleryRecyclerViewHolder>(PHOTO_COMPARATOR) {
+class PhotoGalleryAdapterDelegate :
+    IBaseAdapter<UiModel.PhotoItem, PhotoGalleryRecyclerViewHolder> {
 
     companion object {
         val PHOTO_COMPARATOR = object : DiffUtil.ItemCallback<UiModel.PhotoItem>() {
@@ -32,9 +29,11 @@ class PhotoGalleryDataAdapter :
         }
     }
 
+    override lateinit var getItemForPosition: (Int) -> UiModel.PhotoItem?
+
     override fun getItemViewType(position: Int): Int = R.layout.gallery_photo_item
     override fun onBindViewHolder(holder: PhotoGalleryRecyclerViewHolder, position: Int) {
-        getItem(position)
+        getItemForPosition.invoke(position)
             ?.let {
                 holder.bind(it)
             }
@@ -46,5 +45,4 @@ class PhotoGalleryDataAdapter :
     ): PhotoGalleryRecyclerViewHolder = PhotoGalleryRecyclerViewHolder.create(
         parent
     )
-
 }

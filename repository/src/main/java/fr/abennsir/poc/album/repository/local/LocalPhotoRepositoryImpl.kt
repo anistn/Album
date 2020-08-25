@@ -1,6 +1,7 @@
 package fr.abennsir.poc.album.repository.local
 
 
+import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import fr.abennsir.poc.album.repository.data.PhotoEntity
 import fr.abennsir.poc.album.repository.local.database.PhotoDatabase
@@ -22,6 +23,8 @@ internal class LocalPhotoRepositoryImpl(private val photoDatabase: PhotoDatabase
     }
 
     override fun getPhotos(): Flow<List<PhotoEntity>> = photoDao.getPhoto()
+
+    override fun createPagedPhoto(): PagingSource<Int, PhotoEntity> = photoDao.getPagedPhoto()
 
 
 }
