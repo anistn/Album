@@ -17,7 +17,8 @@
       \n<p><br /><br>Each type is implementation using simple list data and using paged data.</br></p></string>
 
     <string name="section_simple_gallery">Choose album configuration</string>
-    <string name="label_simple_album_fragment">SimpleAlbumFragment</string>
+    <string name="label_album_fragment">Album</string>
+    <string name="label_carousel_fragment">Carousel</string>
     <string name="empty_screen_infos_message">Your Album is empty. Click on retry to synchronize with server again</string>
     <string name="show_album_header_on_text">Show album sections</string>
     <string name="use_paging_on_text">Use paging</string>
