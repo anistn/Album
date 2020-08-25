@@ -46,10 +46,12 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerView_version"
 
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-
+    //paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
 
     implementation project(":domain")
     implementation project(":repository")
@@ -78,7 +80,7 @@ dependencies {
 
     //glide
     //do not upgrade version for suppport API 19.
-    implementation ("com.squareup.okhttp3:okhttp"){
+    implementation("com.squareup.okhttp3:okhttp") {
         version {
             strictly '3.12.12'
         }
@@ -92,7 +94,8 @@ dependencies {
     }
 
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation "androidx.recyclerview:recyclerview:$recyclerView_version"
+
+
 }
 
 dokka {
