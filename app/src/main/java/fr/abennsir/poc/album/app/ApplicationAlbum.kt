@@ -3,6 +3,8 @@ package fr.abennsir.poc.album.app
 import android.app.Application
 import android.os.StrictMode
 import androidx.appcompat.app.AppCompatDelegate
+import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.gallery.injection.DefaultDependenciesProvider
 
 class ApplicationAlbum : Application() {
     companion object {
@@ -17,6 +19,9 @@ class ApplicationAlbum : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        ApplicationDependenciesResolver.setDependenciesProvider(
+            DefaultDependenciesProvider(applicationContext)
+        )
         if (ACTIVATE_STRICT_MODE) {
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder()
