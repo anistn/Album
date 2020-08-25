@@ -14,8 +14,8 @@ import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
 import fr.abennsir.poc.album.app.gallery.simple.viewholder.AlbumScreenViewHolder
+import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseAlbumScreenViewHolder
-import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
 import fr.abennsir.poc.album.databinding.FragmentAlbumBinding
 import fr.abennsir.poc.album.domain.interactor.PhotoUsesCase

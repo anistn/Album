@@ -1,4 +1,4 @@
-package fr.abennsir.poc.album.app.gallery.viewmodel
+package fr.abennsir.poc.album.app.gallery.simple.viewmodel
 
 import android.app.Application
 import android.content.Context
