@@ -6,11 +6,12 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import fr.abennsir.poc.album.app.gallery.adapter.PhotoGalleryAdapterDelegate
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.simple.adapter.PhotoGalleryDataAdapter
+import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseCarouselViewHolder
-import fr.abennsir.poc.album.app.gallery.viewmodel.PhotoViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 /**
@@ -27,10 +28,12 @@ class CarouselViewHolder(
     onPageChanged: (UiModel.PhotoItem, Int) -> Unit = { _, _ -> Unit }
 
 ) : BaseCarouselViewHolder<PhotoGalleryDataAdapter>(
-    galleryPager, onPageChanged,
-    PhotoGalleryDataAdapter().apply {
+    galleryPager,
+    onPageChanged,
+    PhotoGalleryDataAdapter(delegate = PhotoGalleryAdapterDelegate()).apply {
         stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-    }, navigationMode
+    },
+    navigationMode
 ) {
 
     override val currentListProducer: () -> List<UiModel.PhotoItem>
