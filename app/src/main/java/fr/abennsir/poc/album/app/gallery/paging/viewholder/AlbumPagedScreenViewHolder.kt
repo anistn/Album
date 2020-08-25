@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import fr.abennsir.poc.album.app.core.mapper.getPresentationMessage
 import fr.abennsir.poc.album.app.gallery.adapter.PhotoAdapterDelegate
@@ -19,7 +20,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-
+/**
+ * class to show photo gridlayout. It's used to show album from [PagingDataAdapter]
+ * It manage show /scroll to target.
+ * It's scoped to the Fragment/Activity holder.
+ */
 @ExperimentalCoroutinesApi
 class AlbumPagedScreenViewHolder(
     private val binding: FragmentAlbumBinding,

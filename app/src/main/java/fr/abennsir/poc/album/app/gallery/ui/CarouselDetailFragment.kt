@@ -13,6 +13,8 @@ import fr.abennsir.poc.album.app.core.utils.autoCleared
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
 import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.gallery.paging.viewholder.PagedCarouselViewHolder
+import fr.abennsir.poc.album.app.gallery.paging.viewmodel.PagedPhotoViewModel
 import fr.abennsir.poc.album.app.gallery.simple.viewholder.CarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseCarouselViewHolder
@@ -39,11 +41,14 @@ class CarouselDetailFragment : Fragment() {
         )
     }
 
-    private val simpleViewModel: PhotoViewModel by navGraphViewModels(
-        R.id.navigation_graph_album
-    ) {
+    //ViewModel creation is lazy, depending on configuration only one ViewModel will be instantiated
+    private val simpleViewModel: PhotoViewModel by navGraphViewModels(R.id.navigation_graph_album) {
         viewModelFactory
     }
+    private val pagedViewModel: PagedPhotoViewModel by navGraphViewModels(R.id.navigation_graph_album) {
+        viewModelFactory
+    }
+
     private lateinit var viewHolder: BaseCarouselViewHolder<*>
 
     override fun onCreateView(
@@ -72,7 +77,11 @@ class CarouselDetailFragment : Fragment() {
     private fun createViewHolder() {
         val configuration = navigationArgs.configuration
         viewHolder = if (navigationArgs.configuration.enablePaging) {
-            TODO("Add paging implementation")
+            PagedCarouselViewHolder(
+                galleryPager = binding.galleryPager,
+                navigationMode = configuration.mode, lifecycleOwner = viewLifecycleOwner,
+                viewModel = pagedViewModel, onPageChanged = ::updateCurrentPage
+            )
 
         } else {
             CarouselViewHolder(
