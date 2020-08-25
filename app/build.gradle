@@ -45,7 +45,14 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version"
 
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+
+    implementation project(":domain")
+    implementation project(":repository")
 
     // architecture components
     implementation "androidx.core:core-ktx:$androidx_ktx_version"
@@ -57,11 +64,35 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
 
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_gson_version"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_version"
+
     // testing
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:1.1.1"
     androidTestImplementation "androidx.test:runner:$androidx_test_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_version"
+
+    //glide
+    //do not upgrade version for suppport API 19.
+    implementation ("com.squareup.okhttp3:okhttp"){
+        version {
+            strictly '3.12.12'
+        }
+    }
+    //do not upgrade since min is api 19.
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.11.0") {
+        transitive = true
+    }
+    implementation("com.github.bumptech.glide:glide:4.11.0") {
+        transitive = true
+    }
+
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "androidx.recyclerview:recyclerview:$recyclerView_version"
 }
 
 dokka {

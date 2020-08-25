@@ -15,5 +15,8 @@
     <dimen name="icon_size_bigger">96dp</dimen>
     <dimen name="icon_size_biggest">152dp</dimen>
     <dimen name="list_thumbnail_size">64dp</dimen>
+
+    <integer name="grid_span_size">5</integer>
+
 </resources>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--this parent is just a workaround for Paging2 limitation on Scrollable content.-->
+<androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gallery_pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_kit_black40"
+    tools:context=".app.gallery.ui.CarouselDetailFragment"
+    tools:listitem="@layout/gallery_photo_item" />

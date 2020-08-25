@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!--this is a workaround view to make nested sroll possile on viewpager2-->
+<fr.abennsir.poc.album.app.ui.widget.SafeNestedScrollableHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_kit_black80">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/photo_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/listPreferredItemHeightSmall"
+            android:id="@+id/description"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_smallest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Photo descriptions"
+            style="?attr/textAppearanceBody1"
+            android:textColor="@color/ui_kit_white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</fr.abennsir.poc.album.app.ui.widget.SafeNestedScrollableHost>
