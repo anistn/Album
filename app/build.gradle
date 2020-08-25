@@ -47,6 +47,9 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version"
 
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
 
     implementation project(":domain")
     implementation project(":repository")
