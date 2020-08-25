@@ -1,10 +1,52 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+
+        <!--colorPrimary colors map to components and elements, such as app bars and buttons. -->
+        <!--colorSecondary colors are most often used as accents on components, such as FABs and -->
+        <!--selection controls.-->
+        <item name="colorPrimary">@color/ui_kit_brand_primary</item>
+        <item name="colorPrimaryVariant">@color/ui_kit_brand_primary_dark</item>
+        <item name="colorSecondary">@color/ui_kit_brand_secondary</item>
+        <item name="colorSecondaryVariant">@color/ui_kit_brand_secondary_dark</item>
+
+        <!--colorBackground appears behind scrollable content and is used for the default window-->
+        <!--background. -->
+        <!--colorSurface is mapped to the surface of components such as cards, sheets and menus. -->
+        <!--colorError is used to indicate an error state for components such as text fields.-->
+        <item name="android:colorBackground">@color/ui_kit_brand_background</item>
+        <item name="colorSurface">@color/ui_kit_brand_background</item>
+        <item name="colorError">@color/ui_kit_default_red</item>
+
+        <!--"On" colors define how text, icons and strokes are colored in relation to the surface-->
+        <!--on which they appear.-->
+        <item name="colorOnPrimary">@color/ui_kit_brand_primary_light</item>
+        <item name="colorOnSecondary">@color/ui_kit_brand_secondary_light</item>
+        <item name="colorOnBackground">@color/ui_kit_default_dark</item>
+        <item name="colorOnSurface">@color/ui_kit_default_dark</item>
+        <item name="colorOnError">@color/ui_kit_brand_primary_light</item>
+
+        <!--Remap legacy color to MaterialComponent attributes for example: DatePicker-->
+        <item name="colorAccent">@color/ui_kit_brand_secondary</item>
+        <!--used for statusBar-->
+        <item name="colorPrimaryDark">@color/ui_kit_brand_primary_dark</item>
+        <item name="android:windowBackground">@color/ui_kit_brand_background</item>
+        <item name="colorButtonNormal">@color/ui_kit_default_grey</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="appBarLayoutStyle">@style/AppTheme.AppBarOverlay</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="Widget.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
 </resources>
