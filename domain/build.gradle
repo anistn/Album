@@ -59,4 +59,7 @@ dependencies {
 dokka {
     outputFormat = 'gfm'
     outputDirectory = "$rootProject.buildDir/dokka"
+    configuration {
+        includeNonPublic = true
+    }
 }
