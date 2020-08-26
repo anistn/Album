@@ -23,6 +23,14 @@ class PhotoUsesCaseTest {
     }
 
     @Test
+    fun retrievePhotoStream() = runBlockingTest {
+        usesCase.retrievePhotoStream()
+        Verify on mockRepo that mockRepo.getPagedPhotoStream() was called
+        VerifyNoFurtherInteractions on mockRepo
+
+    }
+
+    @Test
     fun retrieveAllPhotoStream() = runBlockingTest {
         usesCase.retrieveAllPhotoStream()
         Verify on mockRepo that mockRepo.getPhotoStreamAsResource() was called
