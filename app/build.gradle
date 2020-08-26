@@ -95,10 +95,13 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
-
 }
+
 
 dokka {
     outputFormat = 'gfm'
-    outputDirectory = "$buildDir/dokka"
+    outputDirectory = "$rootProject.buildDir/dokka"
+    configuration {
+        includes = ['**/README.md']
+    }
 }

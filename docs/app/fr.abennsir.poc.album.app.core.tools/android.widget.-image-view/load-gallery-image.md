@@ -1,0 +1,5 @@
+[app](../../index.md) / [fr.abennsir.poc.album.app.core.tools](../index.md) / [android.widget.ImageView](index.md) / [loadGalleryImage](./load-gallery-image.md)
+
+# loadGalleryImage
+
+`fun `[`ImageView`](https://developer.android.com/reference/android/widget/ImageView.html)`.loadGalleryImage(url: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?, @DrawableRes placeholder: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, @DrawableRes errorDrawable: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)` = placeholder, width: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)` = DEFAULT_IMAGE_SIZE, height: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)` = DEFAULT_IMAGE_SIZE): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

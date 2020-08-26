@@ -12,13 +12,13 @@ import fr.abennsir.poc.album.R
 import fr.abennsir.poc.album.app.core.utils.autoCleared
 import fr.abennsir.poc.album.app.gallery.data.NavigationMode
 import fr.abennsir.poc.album.app.gallery.data.UiModel
-import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
 import fr.abennsir.poc.album.app.gallery.paging.viewholder.PagedCarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.paging.viewmodel.PagedPhotoViewModel
 import fr.abennsir.poc.album.app.gallery.simple.viewholder.CarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.simple.viewmodel.PhotoViewModel
 import fr.abennsir.poc.album.app.gallery.viewholder.BaseCarouselViewHolder
 import fr.abennsir.poc.album.app.gallery.viewmodel.ViewModelFactory
+import fr.abennsir.poc.album.app.injection.ApplicationDependenciesResolver
 import fr.abennsir.poc.album.databinding.FragmentCarouselDetailBinding
 import fr.abennsir.poc.album.domain.interactor.PhotoUsesCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
