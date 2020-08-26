@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Album</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="retry">retry</string>
+    <string name="network_access_error">Error while fetching data. Please check network access.</string>
+    <string name="unexpected_error">Unexpected error occurred, Please retry or clear application data.</string>
+    <string name="unknown_error">Unexpected error occurred, Please retry.</string>
+    <string name="home_blank_fragment_message">
+    \n<p><br><b>This application contains 4 implementation of Album gallery.</b></br></p>
+    \n<p><br>There is two type of Album Gallery:</br></p>
+        \n<ul>
+    \n<li>Simple: All photo are shown on a single GridLayout</li>
+        <br />
+    \n<li>Sectioned: Photo are shown on a GridLayout with an Album header</li>
+       \n </ul>
+      \n<p><br /><br>Each type is implementation using simple list data and using paged data.</br></p></string>
+
+    <string name="section_simple_gallery">Choose album configuration</string>
+    <string name="label_album_fragment">Album</string>
+    <string name="label_carousel_fragment">Carousel</string>
+    <string name="empty_screen_infos_message">Your Album is empty. Click on retry to synchronize with server again</string>
+    <string name="show_album_header_on_text">Show album sections</string>
+    <string name="use_paging_on_text">Use paging</string>
+    <string name="start_album">Start Demo</string>
+    <string name="album_title">Album : %d</string>
+
 </resources>

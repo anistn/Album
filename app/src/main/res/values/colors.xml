@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+
+
+
+    <!--UI KIT BRAND COLOR-->
+    <color name="ui_kit_brand_primary">#FF5873B5</color>
+    <color name="ui_kit_brand_primary_light">#FFEEF1F7</color>
+    <color name="ui_kit_brand_primary_dark">#FF394A75</color>
+
+    <color name="ui_kit_brand_secondary">#FF3BB9F9</color>
+    <color name="ui_kit_brand_secondary_light">#FFEBF8FE</color>
+    <color name="ui_kit_brand_secondary_dark">#FF329DD3</color>
+
+    <color name="ui_kit_brand_background">@color/ui_kit_black03</color>
+
+    <!--UI KIT NEUTRAL COLOR-->
+    <color name="ui_kit_default_dark">@color/ui_kit_black100</color>
+    <color name="ui_kit_default_grey">@color/ui_kit_black40</color>
+    <color name="ui_kit_default_red">#FFFF0000</color>
+    <color name="ui_kit_white">#FFFFFFFF</color>
+    <color name="ui_kit_black03">#FFF9F9F9</color>
+    <color name="ui_kit_black18">#FFD0D0D0</color>
+    <color name="ui_kit_black40">#FF999999</color>
+    <color name="ui_kit_black80">#F0000000</color>
+    <color name="ui_kit_black100">#FF000000</color>
 </resources>

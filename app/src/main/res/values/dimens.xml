@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- margin size -->
+    <dimen name="margin_smallest">4dp</dimen>
+    <dimen name="margin_smaller">8dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_biggest">64dp</dimen>
+
+    <!--    padding-->
+    <dimen name="padding_small">12dp</dimen>
+    <dimen name="padding_default">16dp</dimen>
+
+    <!-- icon size -->
+    <dimen name="icon_size_default">24dp</dimen>
+    <dimen name="icon_size_bigger">96dp</dimen>
+    <dimen name="icon_size_biggest">152dp</dimen>
+    <dimen name="list_thumbnail_size">64dp</dimen>
+
+    <integer name="grid_span_size">5</integer>
+
+</resources>
+
