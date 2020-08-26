@@ -103,5 +103,6 @@ dokka {
     outputDirectory = "$rootProject.buildDir/dokka"
     configuration {
         includes = ['**/README.md']
+        includeNonPublic = true
     }
 }

@@ -1,0 +1,5 @@
+[app](../../index.md) / [fr.abennsir.poc.album.app.gallery.paging.viewholder](../index.md) / [AlbumPagedScreenViewHolder](index.md) / [viewModel](./view-model.md)
+
+# viewModel
+
+`private val viewModel: `[`PagedPhotoViewModel`](../../fr.abennsir.poc.album.app.gallery.paging.viewmodel/-paged-photo-view-model/index.md)

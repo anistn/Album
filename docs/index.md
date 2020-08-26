@@ -95,9 +95,7 @@ Negative:
 - The implementation of paging is hard to test, all objects are wrapped witch make unit testing impossible.  
 
 
-
-
-[app](app/index.md)
+[app](./index.md)
 
 ### Packages
 
@@ -123,12 +121,7 @@ Negative:
 | [fr.abennsir.poc.album.app.injection](fr.abennsir.poc.album.app.injection/index.md) |  |
 | [fr.abennsir.poc.album.app.ui.widget](fr.abennsir.poc.album.app.ui.widget/index.md) |  |
 
-### Index
-
-[All Types](app/alltypes/index.md)
-
-
-[domain](domain/index.md)
+[domain](./index.md)
 
 ### Packages
 
@@ -138,18 +131,23 @@ Negative:
 | [fr.abennsir.poc.album.domain.interactor](fr.abennsir.poc.album.domain.interactor/index.md) |  |
 | [fr.abennsir.poc.album.domain.repository](fr.abennsir.poc.album.domain.repository/index.md) |  |
 
-### Index
 
-[All Types](domain/alltypes/index.md)
-
-[repository](repository/index.md)
+[repository](./index.md)
 
 ### Packages
 
 | Name | Summary |
 |---|---|
 | [fr.abennsir.poc.album.repository](fr.abennsir.poc.album.repository/index.md) |  |
+| [fr.abennsir.poc.album.repository.core](fr.abennsir.poc.album.repository.core/index.md) |  |
+| [fr.abennsir.poc.album.repository.data](fr.abennsir.poc.album.repository.data/index.md) |  |
+| [fr.abennsir.poc.album.repository.local](fr.abennsir.poc.album.repository.local/index.md) |  |
+| [fr.abennsir.poc.album.repository.local.database](fr.abennsir.poc.album.repository.local.database/index.md) |  |
+| [fr.abennsir.poc.album.repository.remote](fr.abennsir.poc.album.repository.remote/index.md) |  |
+| [fr.abennsir.poc.album.repository.remote.api](fr.abennsir.poc.album.repository.remote.api/index.md) |  |
+| [fr.abennsir.poc.album.repository.remote.mediator](fr.abennsir.poc.album.repository.remote.mediator/index.md) |  |
+
 
 ### Index
 
-[All Types](repository/alltypes/index.md)
+[All Types](alltypes/index.md)
