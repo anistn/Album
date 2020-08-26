@@ -1,0 +1,4 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+fr.abennsir.poc.album.repository

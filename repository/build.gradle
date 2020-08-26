@@ -79,3 +79,9 @@ dependencies {
     testImplementation "org.robolectric:robolectric:$robolectric"
 
 }
+
+
+dokka {
+    outputFormat = 'gfm'
+    outputDirectory = "$rootProject.buildDir/dokka"
+}
