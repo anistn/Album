@@ -18,7 +18,8 @@ The aim of this repository is to explore some jeckpack new feature with focus on
 - **Pager2**: Use the new pager with  Scrollable content.
 - **Navigation**: explore navGraph.
 - **Turbine**: Flow testing.
-
+- **Glide**: Image loading.
+- **PhotoView**: Imageiew with zoom/pinch feature.
 
 
 ##### TODO:
@@ -29,8 +30,7 @@ The aim of this repository is to explore some jeckpack new feature with focus on
 - [ ] Add Circle CI
 
 
-
-## <u>Feed back summary</u>:
+# <u>Feed back summary</u>:
 
 **Threading with flow**: 
 
@@ -131,15 +131,4 @@ Negative:
 
 
 
-
-
-
-
-
-
-
-
-
-
- //
- documentation published [here](https://anistn.github.io/testWeatherLib/)
+ documentation published [here](https://anistn.github.io/Album/)
