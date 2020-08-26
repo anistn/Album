@@ -1,4 +1,4 @@
-package fr.abennsir.poc.album.app.gallery.injection
+package fr.abennsir.poc.album.app.injection
 
 import android.content.Context
 import fr.abennsir.poc.album.domain.repository.PhotoRepository

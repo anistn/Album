@@ -3,8 +3,8 @@ package fr.abennsir.poc.album.app
 import android.app.Application
 import android.os.StrictMode
 import androidx.appcompat.app.AppCompatDelegate
-import fr.abennsir.poc.album.app.gallery.injection.ApplicationDependenciesResolver
-import fr.abennsir.poc.album.app.gallery.injection.DefaultDependenciesProvider
+import fr.abennsir.poc.album.app.injection.ApplicationDependenciesResolver
+import fr.abennsir.poc.album.app.injection.DefaultDependenciesProvider
 
 class ApplicationAlbum : Application() {
     companion object {
